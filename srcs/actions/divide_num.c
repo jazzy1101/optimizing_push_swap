@@ -20,20 +20,20 @@ void divide_num(t_stack **a, t_stack **b)
     t_stack *current;
     float average;
 
-    average = calculate_average(*a);
     current = *a;
+    average = calculate_average(*a);
     set_index_median(*a);
     if (current->num > average)
         pb(a, b);
     else
         ra(a);
-    current = *a; 
+    current = current->next;
     while (current->index != 0 && current != NULL)
     {
         if (current->num > average)
             pb(a, b);
         else
             ra(a);
-        current = *a;
+        current = current->next;
     }
 }
