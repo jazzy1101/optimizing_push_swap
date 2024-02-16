@@ -25,6 +25,7 @@ typedef struct s_stack
 	int	num;
 	int index;
 	int cost;
+	bool	visit;
 	bool cheapest;
 	bool before_median;
 	
@@ -63,7 +64,7 @@ bool check_num(char **av);
 bool check_int(char **av);
 bool check_double(char **av);
 t_stack *get_cheapest_node(t_stack *stack);
-void set_index_median(t_stack *stack);
+void set_index_median_visit(t_stack *stack);
 bool check_sorted(t_stack *stack);
 t_stack *ft_second_last_node(t_stack *stack);
 void find_target_in_a(t_stack *stack_a, t_stack *stack_b);

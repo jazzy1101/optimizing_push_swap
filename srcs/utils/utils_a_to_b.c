@@ -99,15 +99,15 @@ void    push_cheapest_a_to_b(t_stack **stack_a, t_stack **stack_b)
     {
         while (*stack_a != cheapest && *stack_b != cheapest->target)
             rr(stack_a, stack_b);
-        set_index_median(*stack_a);
-        set_index_median(*stack_b);
+        set_index_median_visit(*stack_a);
+        set_index_median_visit(*stack_b);
     }
     else if (!(cheapest->before_median) && !(cheapest->target->before_median))
     {
         while (*stack_a != cheapest && *stack_b != cheapest->target)
             rrr(stack_a, stack_b);
-        set_index_median(*stack_a);
-        set_index_median(*stack_b);
+        set_index_median_visit(*stack_a);
+        set_index_median_visit(*stack_b);
     }
     to_top(stack_a, cheapest, 'a');
     to_top(stack_b, cheapest->target, 'b');

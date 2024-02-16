@@ -22,18 +22,19 @@ void divide_num(t_stack **a, t_stack **b)
 
     current = *a;
     average = calculate_average(*a);
-    set_index_median(*a);
-    if (current->num > average)
-        pb(a, b);
-    else
-        ra(a);
-    current = current->next;
-    while (current->index != 0 && current != NULL)
+    set_index_median_visit(*a);
+    while (!(current->visit))
     {
         if (current->num > average)
+        {
+            current->visit = 1;
             pb(a, b);
+        }
         else
-            ra(a);
-        current = current->next;
+        {
+            current->visit = 1;
+            ra(a);            
+        }
+        current = *a;
     }
 }

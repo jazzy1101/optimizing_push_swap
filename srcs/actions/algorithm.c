@@ -37,7 +37,7 @@ void    swap_3(t_stack **stack)
     t_stack *max;
     int index_max;
 
-    set_index_median(*stack);
+    set_index_median_visit(*stack);
     max = ft_max_node(*stack);
     index_max = find_index(*stack, max->num);
     if (index_max == 0)
@@ -59,8 +59,8 @@ void    swap_big(t_stack **stack_a, t_stack **stack_b)
         pb(stack_a, stack_b);
     while (size_a-- > 3 && !check_sorted(*stack_a))
     {
-        set_index_median(*stack_a);
-        set_index_median(*stack_b);
+        set_index_median_visit(*stack_a);
+        set_index_median_visit(*stack_b);
         find_target_in_b(*stack_a, *stack_b);
         calcul_cost_a(*stack_a, *stack_b);
         set_cheapest(*stack_a);
@@ -69,11 +69,11 @@ void    swap_big(t_stack **stack_a, t_stack **stack_b)
     swap_3(stack_a);
     while (stack_size(*stack_b))
     {
-        set_index_median(*stack_a);
-        set_index_median(*stack_b);
+        set_index_median_visit(*stack_a);
+        set_index_median_visit(*stack_b);
         find_target_in_a(*stack_a, *stack_b);
         push_back_b_to_a(stack_a, stack_b);
     }
-    set_index_median(*stack_a);
+    set_index_median_visit(*stack_a);
     min_to_top(stack_a);
 }

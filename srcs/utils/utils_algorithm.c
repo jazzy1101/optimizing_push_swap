@@ -37,7 +37,7 @@ void    add_node_end(t_stack **stack, int num)
     }
 }
 
-void    set_index_median(t_stack *stack)
+void    set_index_median_visit(t_stack *stack)
 {
     int i;
     int median;
@@ -49,6 +49,7 @@ void    set_index_median(t_stack *stack)
     while (stack)
     {
         stack->index = i;
+        stack->visit = 0;
         if (i < median)
             stack->before_median = true;
         else
