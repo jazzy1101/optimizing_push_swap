@@ -16,22 +16,22 @@ void  find_target_in_a(t_stack *stack_a, t_stack *stack_b)
 {
     t_stack *target;
     t_stack *curr;
-    long biggest;
+    long bigger;
 
     while (stack_b)
     {
-        biggest = LONG_MAX;
+        bigger = LONG_MAX;
         curr = stack_a;
         while (curr)
         {
-            if (curr->num > stack_b->num && curr->num < biggest)
+            if (curr->num > stack_b->num && curr->num < bigger)
             {
-                biggest = curr->num;
+                bigger = curr->num;
                 target = curr;
             }
             curr = curr->next;
         }
-        if (biggest == LONG_MAX)
+        if (bigger == LONG_MAX)
             stack_b->target = ft_min_node(stack_a);
         else
             stack_b->target = target;
